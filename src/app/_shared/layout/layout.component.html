@@ -1,21 +1,8 @@
-<div class="main">
-    <!-- BEGIN: Mobile Menu -->
-      <app-mobile-menu></app-mobile-menu>
-    <!-- END: Mobile Menu -->
-    
-    <div class="flex">
-      <!-- BEGIN: Side Menu -->
-      <app-side-menu></app-side-menu>
-      <!-- END: Side Menu -->
-      <!-- BEGIN: Content -->
-        <div class="content">
-          <!-- BEGIN: Top Bar -->
-          <app-top-bar></app-top-bar>
-          <!-- END: Top Bar -->
-          <router-outlet></router-outlet>
-        </div>
-      <!-- END: Content -->
-    </div>
-    
-    </div>
-    
+
+    <!-- BEGIN: Content -->
+        <!-- BEGIN: Top Bar -->
+        <app-header></app-header>
+        <!-- END: Top Bar -->
+        <router-outlet></router-outlet>
+    <!-- END: Content -->
+  

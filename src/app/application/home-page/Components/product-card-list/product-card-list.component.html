@@ -1,0 +1,30 @@
+
+
+<div class="py-12 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
+    <ng-container *ngFor='let loop of myLoop'>
+        <a class="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter" href="">
+          <div class="h-72 border-b-2 border-palette-lighter relative">
+            <img
+              src={{loop.src}}
+              layout="fill"
+              class="transform duration-500 ease-in-out hover:scale-110"
+            />
+          </div>
+          <div class="h-48 relative">
+            <div class="font-primary text-palette-primary  text-purple-800	ext-2xl pt-4 px-4 font-semibold">
+                {{loop.name}}
+            </div>
+            <div class="text-lg text-gray-600 p-4 font-primary font-light">
+                {{loop.description}}
+            </div>
+            <div
+              class="text-palette-dark font-primary text-purple-800	 font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-lighter 
+              rounded-tl-sm triangle"
+            >
+              $<span class='text-lg'>99</span>
+
+            </div>
+          </div>
+        </a>
+    </ng-container>
+  </div>

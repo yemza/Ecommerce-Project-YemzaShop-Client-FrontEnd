@@ -9,12 +9,16 @@ const routes: Routes = [
 
     {
         path : 'products',
-        loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule)
+        loadChildren: () => import('./product-list/product-list.module').then(m => m.ProductListModule)
     },
     
     {
-      path : 'product',
-      loadChildren: () => import('./product-page/product-page.module').then(m => m.ProductPageModule)
+      path : 'product/:id',
+      loadChildren: () => import('./product-detail/product-detail.module').then(m => m.ProductDetailModule)
+    },
+    {
+      path : 'checkout',
+      loadChildren: () => import('./checkout-page/checkout-page.module').then(m => m.CheckoutPageModule)
     }
 
    ]}

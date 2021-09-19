@@ -6,12 +6,12 @@
 </a>
 <div class=" font-primary">
     <h1 class="leading-relaxed text-purple-800 font-extrabold text-3xl text-palette-primary py-2 sm:py-4">
-        {{myLoop.name}}
+        {{productSelected?.title}}
     </h1>
     <p class="font-medium text-lg">
-        {{myLoop.description}}
+        {{productSelected?.description}}
     </p>
     <div class="text-xl text-purple-800 font-medium py-4 px-1">
-        $<span class="text-2xl">99</span>
+        $<span class="text-2xl">  {{productSelected?.price}}</span>
     </div>
 </div>

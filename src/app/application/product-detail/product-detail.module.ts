@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProductPageRoutingModule } from './product-page-routing.module';
+import { ProductDetailRoutingModule } from './product-detail-routing.module';
 import { ProductFormComponent } from './Components/product-form/product-form.component';
 import { ProductInfoComponent } from './Components/product-info/product-info.component';
 import { ProductImagesComponent } from './Components/product-images/product-images.component';
@@ -17,7 +17,8 @@ import { ContainerProductPageComponent } from './Components/container-product-pa
   ],
   imports: [
     CommonModule,
-    ProductPageRoutingModule
+    ProductDetailRoutingModule
   ]
+
 })
-export class ProductPageModule { }
+export class ProductDetailModule { }

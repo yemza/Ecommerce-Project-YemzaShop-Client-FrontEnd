@@ -1,0 +1,57 @@
+
+    <div class="min-h-80 max-w-2xl my-4 sm:my-8 mx-auto w-full">
+        <table class="mx-auto">
+          <thead>
+            <tr class="uppercase text-xs sm:text-sm text-palette-primary border-b border-palette-light">
+              <th class="text-purple-800 font-primary font-normal px-6 py-4">Product</th>
+              <th class="text-purple-800 font-primary font-normal px-6 py-4">Quantity</th>
+              <th class="text-purple-800 font-primary font-normal px-6 py-4 hidden sm:table-cell">Price</th>
+              <th class="text-purple-800 font-primary font-normal px-6 py-4">Remove</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-palette-lighter">
+              <tr  class="text-sm sm:text-base text-gray-600 text-center">
+                <td class="font-primary font-medium px-4 sm:px-6 py-4 flex items-center">
+                  <img
+                    src="../../../../../assets/images/product6.jpg"
+                    height='64'
+                    width='64'
+                    class='hidden sm:inline-flex'
+                  />
+                    <a class="pt-1 hover:text-palette-dark">
+                      The Fashionista
+                    </a>
+                </td>
+                <td class="font-primary font-medium px-4 sm:px-6 py-4">
+                  <input
+                  value="1"
+                    type="number"
+                    class="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight  hover:border-gray-500 focus:outline-none focus:shadow-outline w-16"
+                  />
+                </td>
+                <td class="font-primary text-base font-light px-4 sm:px-6 py-4 hidden sm:table-cell">
+                  $<span class='text-xl'>99</span>
+                </td>
+                <td class="text-purple-800  font-primary font-medium px-4 sm:px-6 py-4">
+                  <button
+                    aria-label="delete-item"
+                    class=""
+                  >
+                    <i  class="fas fa-times w-8 h-8 text-palette-primary border border-palette-primary p-1 hover:bg-palette-lighter" ></i>
+                  </button>
+                </td>
+              </tr>
+     
+              <tr class="text-center">
+                  <td></td>
+                  <td class="font-primary text-base text-gray-600 font-semibold uppercase px-4 sm:px-6 py-4">Subtotal</td>
+                  <td class="text-purple-800  text-lg text-palette-primary font-medium px-4 sm:px-6 py-4">
+                    $<span class='text-xl '>99</span>
+                  </td>
+                  <td></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+  

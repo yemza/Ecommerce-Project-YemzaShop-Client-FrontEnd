@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { IProduct } from 'src/app/_core/models/i-product';
+import { OrdersService } from 'src/app/_core/services/orders.service';
 
 @Component({
   selector: 'app-product-card-list',
@@ -9,7 +10,7 @@ import { IProduct } from 'src/app/_core/models/i-product';
 export class ProductCardListComponent implements OnInit {
   @Input() productsList: IProduct[] = [];
 
-  constructor() {}
+  constructor(private orderService : OrdersService) {}
 
   ngOnInit(): void {}
 

@@ -1,10 +1,11 @@
+<form [formGroup]="ProductFormGroup">
 <div class="w-full">
     <div class="flex justify-start space-x-2 w-full">
       <div class="flex flex-col items-start space-y-1 flex-grow-0">
         <label class="text-gray-500 text-base">Qty.</label>
         <input
-         value="1"
           type="number"
+          formControlName="quantity" 
           class="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight  hover:border-gray-500 focus:outline-none focus:shadow-outline w-16 "
         />
       </div>
@@ -23,9 +24,11 @@
       </div>
     </div>
     <button
+      (click)='AddOrderToCard()'
       class="pt-3 pb-2 bg-purple-800 text-white w-full mt-2 rounded-sm font-primary font-semibold text-xl flex justify-center items-baseline  hover:bg-palette-dark  cursor-none"
     >
       Add To Cart
       <i class="w-5 ml-2 fas fa-ShoppingCart" ></i>
     </button>
   </div>
+</form>

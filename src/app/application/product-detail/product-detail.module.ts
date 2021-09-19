@@ -6,6 +6,7 @@ import { ProductFormComponent } from './Components/product-form/product-form.com
 import { ProductInfoComponent } from './Components/product-info/product-info.component';
 import { ProductImagesComponent } from './Components/product-images/product-images.component';
 import { ContainerProductPageComponent } from './Components/container-product-page/container-product-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ContainerProductPageComponent } from './Components/container-product-pa
   ],
   imports: [
     CommonModule,
-    ProductDetailRoutingModule
+    ProductDetailRoutingModule,
+    ReactiveFormsModule,
   ]
 
 })

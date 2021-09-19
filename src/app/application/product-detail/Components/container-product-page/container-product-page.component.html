@@ -5,7 +5,10 @@
         <app-product-images></app-product-images>
         <div class="flex flex-col justify-between h-full w-full md:w-1/2 max-w-xs mx-auto space-y-4 min-h-128">
             <app-product-info [productSelected]='productSelected'></app-product-info>
-            <app-product-form></app-product-form>
+            <app-product-form
+                [productSelected]='productSelected' 
+                [ProductFormGroup]='ProductFormGroup'>
+        </app-product-form>
         </div>
     </div>
 </div>

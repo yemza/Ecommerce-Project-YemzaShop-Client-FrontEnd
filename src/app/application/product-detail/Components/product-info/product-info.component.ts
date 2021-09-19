@@ -7,7 +7,6 @@ import { IProduct } from 'src/app/_core/models/i-product';
   styleUrls: ['./product-info.component.css']
 })
 export class ProductInfoComponent implements OnInit {
-  myLoop = { id : 0 , name : 'The Unicorn' , description : "You know he's got his own personal stylist.", src :'../../../../../assets/images/mockup-6aeffeca.jpg'}
 
   @Input() productSelected : IProduct  | null = null;
 
@@ -17,7 +16,6 @@ export class ProductInfoComponent implements OnInit {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['productSelected']) {
-      console.log(this.productSelected);
     }
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IProduct } from 'src/app/_core/models/i-product';
@@ -11,18 +12,25 @@ import { ProductService } from 'src/app/_core/services/product.service';
 })
 export class ContainerProductPageComponent implements OnInit,OnDestroy {
    productId : any ;
-   productSelected : IProduct  | null = null;
+   productSelected! : IProduct;
+   ProductFormGroup! : FormGroup ;
 
    private subs = new Subscription();
 
+
+
    
    constructor(private route: ActivatedRoute,
-                private productService :ProductService) { }
+                private productService :ProductService ,
+                private fb : FormBuilder) { }
 
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('id');
-    console.log(this.productId)  
     this.getProductById();
+
+    this.ProductFormGroup = this.fb.group({
+      quantity : [1 , Validators.required]
+    })
   }
 
 

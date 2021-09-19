@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { IOrderDetail } from 'src/app/_core/models/i-order-detail';
 import { IProduct } from 'src/app/_core/models/i-product';
+import { OrdersService } from 'src/app/_core/services/orders.service';
 import { ProductService } from 'src/app/_core/services/product.service';
 
 @Component({
@@ -11,6 +13,7 @@ import { ProductService } from 'src/app/_core/services/product.service';
 export class ContainerHomePageComponent implements OnInit ,OnDestroy  {
   
   productsList : IProduct[] = [];
+  orderDetailList : IOrderDetail []= []
   private subs = new Subscription();
 
   constructor(private productService :ProductService) { }

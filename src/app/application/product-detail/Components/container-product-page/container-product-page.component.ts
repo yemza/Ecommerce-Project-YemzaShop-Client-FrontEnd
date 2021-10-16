@@ -37,7 +37,6 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
   getProductById(){
     this.subs.add(
       this.productService.getProductById(this.productId).subscribe(response =>{
-        console.log(response)
         this.productSelected =response
       })
     )

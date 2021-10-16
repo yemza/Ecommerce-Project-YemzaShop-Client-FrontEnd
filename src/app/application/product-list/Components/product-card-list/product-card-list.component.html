@@ -1,11 +1,11 @@
 
 
 <div class="py-12 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
-    <ng-container *ngFor='let prod of productsList'>
-        <a class="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter" href="">
+    <ng-container *ngFor='let prod of productsList ; let i = index '>
+        <a class="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter" href="javascript:void(0)" (click)='productDetails(i)'>
           <div class="h-72 border-b-2 border-palette-lighter relative">
             <img
-              src={{prod.images}}
+              src={{prod.image}}
               layout="fill"
               class="transform duration-500 ease-in-out hover:scale-110"
             />

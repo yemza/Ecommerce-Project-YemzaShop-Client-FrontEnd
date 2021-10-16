@@ -2,7 +2,7 @@
  <div class="w-full  max-w-md border border-palette-lighter bg-white rounded shadow-lg">
     <div class="relative h-96">
       <img
-        src="../../../../../assets/images/product6.jpg"
+        src="{{productSelected?.image}}"
         layout="fill"
         class="transform duration-500 ease-in-out hover:scale-105"
       />
@@ -20,17 +20,16 @@
 
             <button
               class="relative w-40 h-32 flex-shrink-0 rounded-sm "
-              *ngFor="let im of myLoop"
+              *ngFor="let im of productSelected?.productImages"
 
             >
               <img
-                src={{im.src}}
+                src={{im?.image}}
                 layout="fill"
                 class=""
               />
             </button>
-          ))
-        }
+       
       </div>
       <button
         aria-label="right-scroll"

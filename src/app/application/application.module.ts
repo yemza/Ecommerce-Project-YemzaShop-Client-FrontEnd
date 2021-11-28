@@ -5,6 +5,7 @@ import { ApplicationRoutingModule } from './application-routing.module';
 
 @NgModule({
   declarations: [
+  
   ],
   imports: [
     CommonModule,

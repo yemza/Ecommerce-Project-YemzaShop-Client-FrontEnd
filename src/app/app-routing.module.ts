@@ -5,10 +5,11 @@ const routes: Routes = [
    
   {
     path : '',
-    redirectTo :'/products',
+    redirectTo :'/home',
     pathMatch :'full'
   },
 
+ 
   {
     path : '',
     loadChildren: () => import('./application/application.module').then(m => m.ApplicationModule)

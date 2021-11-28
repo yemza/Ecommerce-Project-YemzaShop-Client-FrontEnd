@@ -8,6 +8,10 @@ const routes: Routes = [
    component : LayoutComponent , children:[
 
     {
+      path : 'home',
+      loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule)
+  },
+    {
         path : 'products',
         loadChildren: () => import('./product-list/product-list.module').then(m => m.ProductListModule)
     },
@@ -21,7 +25,13 @@ const routes: Routes = [
       loadChildren: () => import('./checkout-page/checkout-page.module').then(m => m.CheckoutPageModule)
     }
 
-   ]}
+   ]},
+   {
+    path : '**',
+    redirectTo :'/home',
+    pathMatch :'full'
+  },
+
   
 ];
 

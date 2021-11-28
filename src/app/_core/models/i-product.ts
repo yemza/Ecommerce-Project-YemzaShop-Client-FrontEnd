@@ -10,5 +10,5 @@ export interface IProduct {
     quantity?: number;
     shortDesc?: string;     
     category?: ICategory;
-    productImages?: IProductImages[]
+    productImages?: IProductImages[] 
 }

@@ -2,7 +2,7 @@
  <div class="w-full  max-w-md border border-palette-lighter bg-white rounded shadow-lg">
     <div class="relative h-96">
       <img
-        src="{{productSelected?.image}}"
+        src="{{imageSelected}}"
         layout="fill"
         class="transform duration-500 ease-in-out hover:scale-105"
       />
@@ -15,18 +15,19 @@
       <i class="w-3 mx-1 text-palette-primary fas fa-arrow-left"></i>
     </button>
       <div
-        class="flex space-x-1 w-full overflow-auto border-t border-palette-lighter"
+        class="flex space-x-1 w-full  overflow-y-hidden  border-t border-palette-lighter"
       >
 
             <button
               class="relative w-40 h-32 flex-shrink-0 rounded-sm "
-              *ngFor="let im of productSelected?.productImages"
+              *ngFor="let im of productSelected?.productImages ; let i= index"
 
             >
               <img
                 src={{im?.image}}
                 layout="fill"
                 class=""
+                (click)='changeMainImage(im.id)'
               />
             </button>
        

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { IProduct } from 'src/app/_core/models/i-product';
+import { IProductImages } from 'src/app/_core/models/i-productImages';
 
 @Component({
   selector: 'app-product-images',
@@ -8,9 +9,8 @@ import { IProduct } from 'src/app/_core/models/i-product';
 })
 export class ProductImagesComponent implements OnInit {
 
-  @Input() productSelected : IProduct | null = null; 
-  
-  constructor() { }
+  @Input() productSelected: IProduct | undefined
+  imageSelected : string | undefined
 
   ngOnInit(): void {
   }
@@ -18,8 +18,13 @@ export class ProductImagesComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['productSelected']) {
       console.log(this.productSelected)
+      this.imageSelected = this.productSelected?.image 
     }
   }
 
+  changeMainImage(index : number){
+    this.imageSelected = this.productSelected?.productImages?.find( x=> x.id == index)?.image
+
+  }
 
 }

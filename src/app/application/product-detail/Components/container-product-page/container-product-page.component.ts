@@ -2,7 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { IBasket } from 'src/app/_core/models/i-basket';
 import { IProduct } from 'src/app/_core/models/i-product';
+import { BasketService } from 'src/app/_core/services/basket.service';
 import { ProductService } from 'src/app/_core/services/product.service';
 
 @Component({
@@ -22,6 +24,7 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
    
    constructor(private route: ActivatedRoute,
                 private productService :ProductService ,
+                private basketService : BasketService,
                 private fb : FormBuilder) { }
 
   ngOnInit(): void {
@@ -40,6 +43,17 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
         this.productSelected =response
       })
     )
+  }
+
+  addProductToCard(event : any){
+    let myBasket : IBasket
+    myBasket ={id : null , 
+              quantity: event.quantity,
+              product : event.productEntityDAO,
+              client : null}
+     this.basketService.addProductToBasket(myBasket).subscribe(res=>{
+       console.log(res);
+     })        
   }
 
   ngOnDestroy(): void {

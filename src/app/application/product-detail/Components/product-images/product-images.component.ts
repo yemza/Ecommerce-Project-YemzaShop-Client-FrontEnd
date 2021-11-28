@@ -22,7 +22,7 @@ export class ProductImagesComponent implements OnInit {
     }
   }
 
-  changeMainImage(index : number){
+  changeMainImage(index : any){
     this.imageSelected = this.productSelected?.productImages?.find( x=> x.id == index)?.image
 
   }

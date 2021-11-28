@@ -7,7 +7,9 @@
             <app-product-info [productSelected]='productSelected'></app-product-info>
             <app-product-form
                 [productSelected]='productSelected' 
-                [ProductFormGroup]='ProductFormGroup'>
+                [ProductFormGroup]='ProductFormGroup'
+                (addProductToCardEvent) ='addProductToCard($event)'
+                >
         </app-product-form>
         </div>
     </div>

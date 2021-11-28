@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { IBasket } from 'src/app/_core/models/i-basket';
 
 @Component({
   selector: 'app-cart-table-products',
@@ -6,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-table-products.component.css']
 })
 export class CartTableProductsComponent implements OnInit {
+  
+  @Input() listOfProductBAsket : IBasket[]=[];
+  total : any = 0;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['listOfProductBAsket']) {
+      console.log(this.listOfProductBAsket);
+      this.CountTotal();
+    }
+   
+  }
+
+
+  CountTotal(){
+   this.listOfProductBAsket.forEach(element => {
+     this.total += element?.product?.price;
+   });
+   
+    console.log( "this.total" );
+
+   console.log( this.total );
+  }
 }

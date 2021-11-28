@@ -1,4 +1,4 @@
-import { Component,  Input, OnInit,  SimpleChanges } from '@angular/core';
+import { Component,  EventEmitter,  Input, OnInit,  Output,  SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { IOrderDetail } from 'src/app/_core/models/i-order-detail';
 import { IProduct } from 'src/app/_core/models/i-product';
@@ -13,7 +13,11 @@ export class ProductFormComponent implements OnInit {
   @Input() productSelected : IProduct | null =  {} ;
   @Input() ProductFormGroup! : FormGroup ;
 
+  @Output() addProductToCardEvent = new EventEmitter();
+
   orderDetail : IOrderDetail = {}  
+
+
 
 
   constructor( private orderService : OrdersService) { }
@@ -33,10 +37,9 @@ export class ProductFormComponent implements OnInit {
   AddOrderToCard(){
     this.orderDetail.productEntityDAO = this.productSelected!;
     this.orderDetail.quantity = this.quantityContols;
-    console.log(this.orderDetail)
-    this.orderService.addNewOrderDetail( this.orderDetail);
-    console.log(this.orderService.getAllOrdersDetail());
-
+    this.orderService.addNewOrderDetail(this.orderDetail);
+   
+    this.addProductToCardEvent.emit(this.orderDetail)
   }
 
 

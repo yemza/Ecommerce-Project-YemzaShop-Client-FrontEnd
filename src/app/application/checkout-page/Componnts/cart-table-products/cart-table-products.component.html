@@ -9,17 +9,18 @@
               <th class="text-purple-800 font-primary font-normal px-6 py-4">Remove</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-palette-lighter">
-              <tr  class="text-sm sm:text-base text-gray-600 text-center">
+          <tbody class="divide-y divide-palette-lighter" >
+              <tr  class="text-sm sm:text-base text-gray-600 text-center" 
+                   *ngFor="let basket of listOfProductBAsket">
                 <td class="font-primary font-medium px-4 sm:px-6 py-4 flex items-center">
                   <img
-                    src="../../../../../assets/images/product6.jpg"
+                    src={{basket?.product?.image}}
                     height='64'
                     width='64'
                     class='hidden sm:inline-flex'
                   />
                     <a class="pt-1 hover:text-palette-dark">
-                      The Fashionista
+                      {{basket?.product?.title}}
                     </a>
                 </td>
                 <td class="font-primary font-medium px-4 sm:px-6 py-4">
@@ -30,7 +31,7 @@
                   />
                 </td>
                 <td class="font-primary text-base font-light px-4 sm:px-6 py-4 hidden sm:table-cell">
-                  $<span class='text-xl'>99</span>
+                  $<span class='text-xl'>{{basket?.product?.price}}</span>
                 </td>
                 <td class="text-purple-800  font-primary font-medium px-4 sm:px-6 py-4">
                   <button
@@ -46,7 +47,7 @@
                   <td></td>
                   <td class="font-primary text-base text-gray-600 font-semibold uppercase px-4 sm:px-6 py-4">Subtotal</td>
                   <td class="text-purple-800  text-lg text-palette-primary font-medium px-4 sm:px-6 py-4">
-                    $<span class='text-xl '>99</span>
+                    $<span class='text-xl '>{{total}}</span>
                   </td>
                   <td></td>
               </tr>

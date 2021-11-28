@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from '../_shared/components/about/about.component';
+import { ContactComponent } from '../_shared/components/contact/contact.component';
 import { LayoutComponent } from '../_shared/layout/layout.component';
 
 const routes: Routes = [
+
+ 
 
   {path : '' ,
    component : LayoutComponent , children:[
@@ -23,7 +27,17 @@ const routes: Routes = [
     {
       path : 'checkout',
       loadChildren: () => import('./checkout-page/checkout-page.module').then(m => m.CheckoutPageModule)
-    }
+    },
+
+    {
+      path : 'About-us',
+      component: AboutComponent
+    },
+  
+    {
+      path : 'contact-us',
+       component : ContactComponent
+    },
 
    ]},
    {

@@ -7,20 +7,17 @@ import { IBasket } from '../models/i-basket';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class BasketService {
 
   constructor(private http : HttpClient) { }
 
 
-   
-  getAllProducts(): Observable<any>{
-    return this.http.get(environment.apiUrl + "products");
+  addProductToBasket(myBasket : IBasket) : Observable<IBasket>{
+    return this.http.post(environment.apiUrl + "addBasket" , myBasket);
   }
 
-  getProductById(productId : any): Observable<any>{
-    return this.http.get(environment.apiUrl + "productbyId?productId=" + productId);
+  getProductBasket(): Observable<IBasket>{
+    return this.http.get(environment.apiUrl + "getBasket" );
   }
-
-
 
 }

@@ -20,10 +20,9 @@ export class AfterAuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     if (this.tokenService.loggedIn()) {
-      this.router.navigateByUrl('/application');
+      this.router.navigateByUrl('/stickers/home');
       return false;
     }
-
     return true;
   }
 }

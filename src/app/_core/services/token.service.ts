@@ -19,7 +19,7 @@ export class TokenService {
     return localStorage.getItem('token');
   }
 
-  getId(): string | null {
+  getId(): any {
     return localStorage.getItem('id');
   }
 
@@ -34,7 +34,6 @@ export class TokenService {
 
   payload(token: any): any {
     const payload = token.split('.')[1];
-    console.log('payload', payload);
     return this.decode(payload);
   }
 
@@ -45,7 +44,7 @@ export class TokenService {
     if (token) {
       const payload = this.payload(token);
       if (payload) {
-        return id === payload.idUser;
+        return +id === payload.idUser;
       }
     }
     return false;
@@ -58,6 +57,11 @@ export class TokenService {
       return payload ? payload : null;
     }
     return null;
+  }
+
+
+  getUserId(token : string){
+    return this.payload(token).idUser
   }
 
   loggedIn(): boolean {

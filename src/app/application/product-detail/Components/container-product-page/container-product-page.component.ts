@@ -6,6 +6,7 @@ import { IBasket } from 'src/app/_core/models/i-basket';
 import { IProduct } from 'src/app/_core/models/i-product';
 import { BasketService } from 'src/app/_core/services/basket.service';
 import { ProductService } from 'src/app/_core/services/product.service';
+import { TokenService } from 'src/app/_core/services/token.service';
 
 @Component({
   selector: 'app-container-product-page',
@@ -25,6 +26,7 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
    constructor(private route: ActivatedRoute,
                 private productService :ProductService ,
                 private basketService : BasketService,
+                private tokenService :TokenService,
                 private fb : FormBuilder) { }
 
   ngOnInit(): void {
@@ -50,7 +52,9 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
     myBasket ={id : null , 
               quantity: event.quantity,
               product : event.productEntityDAO,
-              client : null}
+              user : {
+                id : this.tokenService.getId(),
+              }}
      this.basketService.addProductToBasket(myBasket).subscribe(res=>{
        console.log(res);
      })        

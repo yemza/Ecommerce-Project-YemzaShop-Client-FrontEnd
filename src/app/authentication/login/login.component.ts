@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/_core/services/authentication.service';
 import { ReactiveFormsService } from 'src/app/_core/services/reactive-forms.service';
+import { TokenService } from 'src/app/_core/services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +18,8 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private fb : FormBuilder , 
+              private router: Router,
+              private  tokenService:TokenService,
               private  quthenticationService: AuthenticationService ,
               private  reactiveFormsService: ReactiveFormsService) { }
 
@@ -47,13 +51,24 @@ export class LoginComponent implements OnInit {
       this.quthenticationService.Login(this.loginFormGroup?.value,  {skip_token:'true'}
         ).subscribe(
         res =>{
-          console.log(res)
+          this.handelToken(res);
         }
       ))
    }else{
      this.reactiveFormsService.validateAllFormFields(this.loginFormGroup)
    }
   }
+
+
+  /**
+   * handling the token From the backEnd
+   */
+   handelToken(response : any ){
+      this.tokenService.handle(response);
+      if(this.tokenService.loggedIn()){
+        this.router.navigateByUrl('/stickers/home');
+      }
+   }
 
   /**
    * On Destroy

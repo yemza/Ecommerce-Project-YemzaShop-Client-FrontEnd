@@ -24,7 +24,7 @@ export class ProductCardListComponent implements OnInit {
   productDetails(i : number){
     console.log('(((((((((((((((((((((((((((((((((((((((((')
     console.log(this.productsList[i].id)
-    this.route.navigate(['/product/' + this.productsList[i].id])
+    this.route.navigate(['/stickers/product/' + this.productsList[i].id])
 
   }
 }

@@ -38,7 +38,6 @@ export class ProductFormComponent implements OnInit {
     this.orderDetail.productEntityDAO = this.productSelected!;
     this.orderDetail.quantity = this.quantityContols;
     this.orderService.addNewOrderDetail(this.orderDetail);
-   
     this.addProductToCardEvent.emit(this.orderDetail)
   }
 

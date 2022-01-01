@@ -16,8 +16,8 @@ export class BasketService {
     return this.http.post(environment.apiUrl + "addBasket" , myBasket);
   }
 
-  getProductBasket(): Observable<IBasket>{
-    return this.http.get(environment.apiUrl + "getBasket" );
+  getProductBasketbyUserId(idUser : number): Observable<IBasket>{
+    return this.http.get(environment.apiUrl + "getBasketByIdUser?idUser="+idUser );
   }
 
 }

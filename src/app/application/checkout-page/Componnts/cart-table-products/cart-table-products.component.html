@@ -25,7 +25,7 @@
                 </td>
                 <td class="font-primary font-medium px-4 sm:px-6 py-4">
                   <input
-                  value="1"
+                    value={{basket?.quantity}}
                     type="number"
                     class="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight  hover:border-gray-500 focus:outline-none focus:shadow-outline w-16"
                   />
@@ -47,7 +47,7 @@
                   <td></td>
                   <td class="font-primary text-base text-gray-600 font-semibold uppercase px-4 sm:px-6 py-4">Subtotal</td>
                   <td class="text-purple-800  text-lg text-palette-primary font-medium px-4 sm:px-6 py-4">
-                    $<span class='text-xl '>{{total}}</span>
+                    $<span class='text-xl '>{{total | number:'1.2-2'}}</span>
                   </td>
                   <td></td>
               </tr>

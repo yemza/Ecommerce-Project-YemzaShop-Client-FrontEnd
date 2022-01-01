@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { IBasket } from 'src/app/_core/models/i-basket';
 import { IProduct } from 'src/app/_core/models/i-product';
 import { BasketService } from 'src/app/_core/services/basket.service';
+import { NotificationService } from 'src/app/_core/services/notification.service';
 import { ProductService } from 'src/app/_core/services/product.service';
 import { TokenService } from 'src/app/_core/services/token.service';
 
@@ -27,7 +29,9 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
                 private productService :ProductService ,
                 private basketService : BasketService,
                 private tokenService :TokenService,
-                private fb : FormBuilder) { }
+                private fb : FormBuilder,
+                private notification: NotificationService,
+                private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('id');
@@ -37,7 +41,6 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
       quantity : [1 , Validators.required]
     })
   }
-
 
   getProductById(){
     this.subs.add(
@@ -57,6 +60,7 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
               }}
      this.basketService.addProductToBasket(myBasket).subscribe(res=>{
        console.log(res);
+       this.notification.success('success',"product added successfully to your shopping cart")
      })        
   }
 

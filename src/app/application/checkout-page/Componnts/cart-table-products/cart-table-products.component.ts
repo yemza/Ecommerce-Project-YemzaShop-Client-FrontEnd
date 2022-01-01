@@ -27,7 +27,10 @@ export class CartTableProductsComponent implements OnInit {
 
   CountTotal(){
    this.listOfProductBAsket.forEach(element => {
-     this.total += element?.product?.price;
+
+    if(element?.quantity && element?.product?.price){
+      this.total += (element?.product?.price * element?.quantity);
+    }
    });
    
     console.log( "this.total" );

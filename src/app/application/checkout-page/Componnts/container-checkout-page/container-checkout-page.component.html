@@ -7,15 +7,17 @@
     <app-cart-table-products [listOfProductBAsket] = 'listOfProductBAsket'></app-cart-table-products>
 
     <div class="max-w-sm mx-auto space-y-4 px-2">
-        <a href=""
+        <a (click)="CheckOut()"
+           href="javascript:void(0)"
             class="bg-purple-700 text-white text-lg font-primary font-semibold pt-2 pb-1 leading-relaxed flex 
         justify-center items-center focus:ring-1 focus:ring-palette-light focus:outline-none w-full hover:bg-palette-dark rounded-sm">
             Check Out
             <i class="w-4 ml-2 inline-flex fas fa-arrow-right"></i>
         </a>
-        <a aria-label="back-to-products"
+        <a routerLink="/stickers/products"
+            aria-label="back-to-products"
             class="border border-purple-800 text-purple-800 text-lg font-primary font-semibold pt-2 pb-1 leading-relaxed flex 
-   justify-center items-center focus:ring-1 focus:ring-palette-light focus:outline-none w-full hover:bg-palette-lighter rounded-sm">
+              justify-center items-center focus:ring-1 focus:ring-palette-light focus:outline-none w-full hover:bg-palette-lighter rounded-sm">
             <i class="w-4 mr-2 inline-flex  fas fa-arrow-left"></i>
             Back To All Products
         </a>

@@ -27,14 +27,19 @@ export class CartTableProductsComponent implements OnInit {
 
   CountTotal(){
    this.listOfProductBAsket.forEach(element => {
-
     if(element?.quantity && element?.product?.price){
       this.total += (element?.product?.price * element?.quantity);
     }
    });
-   
-    console.log( "this.total" );
-
-   console.log( this.total );
   }
+
+  deletePoductFromBasket(idProuct?: number){
+    //to send Event with id
+    console.log("Product To delete")
+    console.log(idProuct)
+  }
+
+
+
+
 }

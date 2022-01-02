@@ -29,4 +29,9 @@ export class ContainerCheckoutPageComponent implements OnInit {
     this.notification.error('Error',error.originalError.statusText)
    })
   }
+
+  CheckOut(){
+    // payement maybe i will add paypal
+    console.log("redirect to checkout Page!!")
+  }
 }

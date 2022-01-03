@@ -23,15 +23,15 @@ export class CartTableProductsComponent implements OnInit {
       console.log(this.listOfProductBAsket);
       this.CountTotal();
     }
-   
   }
 
 
   CountTotal(){
-   this.listOfProductBAsket.forEach(element => {
-    if(element?.quantity && element?.product?.price){
-      this.total += (element?.product?.price * element?.quantity);
-    }
+    this.total = null;
+      this.listOfProductBAsket.forEach(element => {
+        if(element?.quantity && element?.product?.price){
+          this.total += (element?.product?.price * element?.quantity);
+        }
    });
   }
 
@@ -40,11 +40,9 @@ export class CartTableProductsComponent implements OnInit {
    * Deleting Product From the BAsket List
    * @param idBasket 
    */
-  deletePoductFromBasket(idProuct?: number){
+  deletePoductFromBasket(index : any){
     //to send Event with id
-    console.log("Product To delete")
-    console.log(idProuct)
-    this.deleteProductFromBasketEvent.emit(idProuct);
+    this.deleteProductFromBasketEvent.emit(this.listOfProductBAsket[index]?.id);
   }
 
 

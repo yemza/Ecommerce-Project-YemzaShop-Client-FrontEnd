@@ -9,6 +9,7 @@ import { BasketService } from 'src/app/_core/services/basket.service';
 import { NotificationService } from 'src/app/_core/services/notification.service';
 import { ProductService } from 'src/app/_core/services/product.service';
 import { TokenService } from 'src/app/_core/services/token.service';
+import { HeaderComponent } from 'src/app/_shared/components/header/header.component';
 
 @Component({
   selector: 'app-container-product-page',
@@ -21,9 +22,6 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
    ProductFormGroup! : FormGroup ;
 
    private subs = new Subscription();
-
-
-
    
    constructor(private route: ActivatedRoute,
                 private productService :ProductService ,
@@ -36,7 +34,6 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('id');
     this.getProductById();
-
     this.ProductFormGroup = this.fb.group({
       quantity : [1 , Validators.required]
     })
@@ -51,17 +48,20 @@ export class ContainerProductPageComponent implements OnInit,OnDestroy {
   }
 
   addProductToCard(event : any){
-    let myBasket : IBasket
-    myBasket ={id : null , 
-              quantity: event.quantity,
-              product : event.productEntityDAO,
-              user : {
-                id : this.tokenService.getId(),
-              }}
-     this.basketService.addProductToBasket(myBasket).subscribe(res=>{
-       console.log(res);
+    this.subs.add(
+     this.basketService.addProductToBasket(this.prepareProductObject(event)).subscribe(res=>{
        this.notification.success('success',"product added successfully to your shopping cart")
-     })        
+      })    
+    )    
+  }
+
+  prepareProductObject(event : any){
+   return  {id : null , 
+            quantity: event.quantity,
+            product : event.productEntityDAO,
+            user : {
+            id : this.tokenService.getId(),
+            }}
   }
 
   ngOnDestroy(): void {

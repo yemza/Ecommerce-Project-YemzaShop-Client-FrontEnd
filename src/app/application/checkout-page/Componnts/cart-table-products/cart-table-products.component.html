@@ -11,7 +11,7 @@
           </thead>
           <tbody class="divide-y divide-palette-lighter" >
               <tr  class="text-sm sm:text-base text-gray-600 text-center" 
-                   *ngFor="let basket of listOfProductBAsket">
+                   *ngFor="let basket of listOfProductBAsket ; let i= index">
                 <td class="font-primary font-medium px-4 sm:px-6 py-4 flex items-center">
                   <img
                     src={{basket?.product?.image}}
@@ -35,7 +35,7 @@
                 </td>
                 <td class="text-purple-800  font-primary font-medium px-4 sm:px-6 py-4">
                   <button
-                   (click)= "deletePoductFromBasket(basket?.product?.id)"
+                   (click)="deletePoductFromBasket(i)"
                     aria-label="delete-item"
                     class=""
                   >

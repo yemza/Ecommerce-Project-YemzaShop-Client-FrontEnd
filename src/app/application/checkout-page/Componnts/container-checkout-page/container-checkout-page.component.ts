@@ -15,7 +15,7 @@ export class ContainerCheckoutPageComponent implements OnInit {
 
   constructor(private basketService : BasketService,
               private tokenService : TokenService,
-              private notification: NotificationService) { }
+              private notification: NotificationService,) { }
 
   ngOnInit(): void {
     this.getProductBasketbyUserId();
@@ -40,7 +40,6 @@ export class ContainerCheckoutPageComponent implements OnInit {
 
   deleteProductFromBasketById(idBasket : number){
     this.basketService.deleteProductFromBasketById(idBasket).subscribe(res=>{
-      //Refreche list 
       this.getProductBasketbyUserId()
     })
   }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { IBasket } from 'src/app/_core/models/i-basket';
 
 @Component({
@@ -9,6 +9,8 @@ import { IBasket } from 'src/app/_core/models/i-basket';
 export class CartTableProductsComponent implements OnInit {
   
   @Input() listOfProductBAsket : IBasket[]=[];
+
+  @Output() deleteProductFromBasketEvent = new EventEmitter();
   total : any = 0;
 
   constructor() { }
@@ -33,10 +35,16 @@ export class CartTableProductsComponent implements OnInit {
    });
   }
 
+
+  /**
+   * Deleting Product From the BAsket List
+   * @param idBasket 
+   */
   deletePoductFromBasket(idProuct?: number){
     //to send Event with id
     console.log("Product To delete")
     console.log(idProuct)
+    this.deleteProductFromBasketEvent.emit(idProuct);
   }
 
 

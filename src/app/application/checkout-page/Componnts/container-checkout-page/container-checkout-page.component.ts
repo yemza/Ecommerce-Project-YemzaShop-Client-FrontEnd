@@ -18,16 +18,31 @@ export class ContainerCheckoutPageComponent implements OnInit {
               private notification: NotificationService) { }
 
   ngOnInit(): void {
-
     this.getProductBasketbyUserId();
   }
 
+  
+  /**
+   * get All Product In the Basket by id User
+   */
   getProductBasketbyUserId(){
    this.basketService.getProductBasketbyUserId(this.tokenService.getId()).subscribe(res=>{
      this.listOfProductBAsket = res as IBasket[];
    }, (error) => {
     this.notification.error('Error',error.originalError.statusText)
    })
+  }
+
+  /**
+   * Deleting Product From the BAsket List
+   * @param idBasket 
+   */
+
+  deleteProductFromBasketById(idBasket : number){
+    this.basketService.deleteProductFromBasketById(idBasket).subscribe(res=>{
+      //Refreche list 
+      this.getProductBasketbyUserId()
+    })
   }
 
   CheckOut(){

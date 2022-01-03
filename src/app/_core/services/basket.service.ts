@@ -20,4 +20,10 @@ export class BasketService {
     return this.http.get(environment.apiUrl + "getBasketByIdUser?idUser="+idUser );
   }
 
+  deleteProductFromBasketById(idBasket : number): Observable<any>{
+    return this.http.delete(environment.apiUrl + "deleteProductFromBasket?idBaskest="+idBasket );
+  }
+
+
+  
 }

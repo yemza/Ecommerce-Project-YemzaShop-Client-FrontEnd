@@ -23,7 +23,9 @@ export class BasketService {
   deleteProductFromBasketById(idBasket : number): Observable<any>{
     return this.http.delete(environment.apiUrl + "deleteProductFromBasket?idBaskest="+idBasket );
   }
-
-
+    
+  getListBasketLenght(idUser : number): Observable<any>{
+    return this.http.get(environment.apiUrl + "getListBasketLenght?idUser="+idUser );
+  }
   
 }

@@ -43,7 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     Ng2SearchPipeModule,
     NgSelectModule,
     ToastrModule.forRoot(), 
-    BrowserAnimationsModule
+    
   ],
   exports: [
     ReactiveFormsModule,

@@ -5,26 +5,23 @@ import { IProductImages } from 'src/app/_core/models/i-productImages';
 @Component({
   selector: 'app-product-images',
   templateUrl: './product-images.component.html',
-  styleUrls: ['./product-images.component.css']
+  styleUrls: ['./product-images.component.css'],
 })
 export class ProductImagesComponent implements OnInit {
+  @Input() productSelected: IProduct | undefined;
+  imageSelected: string | undefined;
 
-  @Input() productSelected: IProduct | undefined
-  imageSelected : string | undefined
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['productSelected']) {
-      console.log(this.productSelected)
-      this.imageSelected = this.productSelected?.image 
+      this.imageSelected = this.productSelected?.image;
     }
   }
 
-  changeMainImage(index : any){
-    this.imageSelected = this.productSelected?.productImages?.find( x=> x.id == index)?.image
-
+  changeMainImage(index: any) {
+    this.imageSelected = this.productSelected?.productImages?.find(
+      (x) => x.id == index
+    )?.image;
   }
-
 }

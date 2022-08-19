@@ -11,7 +11,7 @@ import { OrdersService } from 'src/app/_core/services/orders.service';
 export class ProductCardListComponent implements OnInit {
   @Input() productsList: IProduct[] = [];
 
-  constructor(private route : Router) {}
+  constructor(private route: Router) {}
 
   ngOnInit(): void {}
 
@@ -21,10 +21,7 @@ export class ProductCardListComponent implements OnInit {
     }
   }
 
-  productDetails(i : number){
-    console.log('(((((((((((((((((((((((((((((((((((((((((')
-    console.log(this.productsList[i].id)
-    this.route.navigate(['/stickers/product/' + this.productsList[i].id])
-
+  productDetails(i: number) {
+    this.route.navigate(['/stickers/product/' + this.productsList[i].id]);
   }
 }

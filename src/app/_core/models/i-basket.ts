@@ -1,9 +1,8 @@
-import { IClient } from "./i-client";
 import { IProduct } from "./i-product";
-
+import { IUser } from "./i-user";
  export interface IBasket {
   id?: number | null ;
-  quantity?: number;
+  quantity?: number ;
   product ?: IProduct;
-  client ?: IClient | null;
- }
+  user ?: IUser ;
+ } 

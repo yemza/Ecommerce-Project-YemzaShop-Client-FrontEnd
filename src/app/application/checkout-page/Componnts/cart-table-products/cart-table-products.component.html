@@ -11,7 +11,7 @@
           </thead>
           <tbody class="divide-y divide-palette-lighter" >
               <tr  class="text-sm sm:text-base text-gray-600 text-center" 
-                   *ngFor="let basket of listOfProductBAsket">
+                   *ngFor="let basket of listOfProductBAsket ; let i= index">
                 <td class="font-primary font-medium px-4 sm:px-6 py-4 flex items-center">
                   <img
                     src={{basket?.product?.image}}
@@ -19,13 +19,13 @@
                     width='64'
                     class='hidden sm:inline-flex'
                   />
-                    <a class="pt-1 hover:text-palette-dark">
+                    <a routerLink="/stickers/product/{{basket?.product?.id}}" class="pt-1 hover:text-palette-dark">
                       {{basket?.product?.title}}
                     </a>
                 </td>
                 <td class="font-primary font-medium px-4 sm:px-6 py-4">
                   <input
-                  value="1"
+                    value={{basket?.quantity}}
                     type="number"
                     class="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight  hover:border-gray-500 focus:outline-none focus:shadow-outline w-16"
                   />
@@ -35,6 +35,7 @@
                 </td>
                 <td class="text-purple-800  font-primary font-medium px-4 sm:px-6 py-4">
                   <button
+                   (click)="deletePoductFromBasket(i)"
                     aria-label="delete-item"
                     class=""
                   >
@@ -47,7 +48,7 @@
                   <td></td>
                   <td class="font-primary text-base text-gray-600 font-semibold uppercase px-4 sm:px-6 py-4">Subtotal</td>
                   <td class="text-purple-800  text-lg text-palette-primary font-medium px-4 sm:px-6 py-4">
-                    $<span class='text-xl '>{{total}}</span>
+                    $<span class='text-xl '>{{total | number:'1.2-2'}}</span>
                   </td>
                   <td></td>
               </tr>

@@ -12,23 +12,23 @@ export const httpInterceptorProviders = [
     useClass: HttpErrorInterceptor,
     multi: true,
   },
-  {
-    provide: ErrorHandler,
-    useClass: GlobalErrorHandler,
-  },
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: SpinnerInterceptor,
-    multi: true,
-  },
+  // {
+  //   provide: ErrorHandler,
+  //   useClass: GlobalErrorHandler,
+  // },
+  // {
+  //   provide: HTTP_INTERCEPTORS,
+  //   useClass: SpinnerInterceptor,
+  //   multi: true,
+  // },
   {
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptor,
     multi: true,
   },
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: UnauthorizedInterceptor,
-    multi: true,
-  },
+  // {
+  //   provide: HTTP_INTERCEPTORS,
+  //   useClass: UnauthorizedInterceptor,
+  //   multi: true,
+  // },
 ];

@@ -7,20 +7,20 @@ import { ProductInfoComponent } from './Components/product-info/product-info.com
 import { ProductImagesComponent } from './Components/product-images/product-images.component';
 import { ContainerProductPageComponent } from './Components/container-product-page/container-product-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { SharedModule } from 'src/app/_shared/shared.module';
 
 @NgModule({
   declarations: [
     ProductFormComponent,
     ProductInfoComponent,
     ProductImagesComponent,
-    ContainerProductPageComponent
+    ContainerProductPageComponent,
   ],
   imports: [
     CommonModule,
     ProductDetailRoutingModule,
     ReactiveFormsModule,
-  ]
-
+    SharedModule,
+  ],
 })
-export class ProductDetailModule { }
+export class ProductDetailModule {}

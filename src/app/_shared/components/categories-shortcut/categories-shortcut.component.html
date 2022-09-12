@@ -1,0 +1,28 @@
+<div>
+  <h1
+    class="leading-relaxed font-primary text-purple-800 font-extrabold text-4xl text-center text-palette-primary mt-4 py-2 sm:py-4"
+  >
+    Our Categories
+  </h1>
+</div>
+
+<div class="p-8 drop-shadow-2xl">
+  <a href="">
+    <div class="grid grid-cols-4 gap-4">
+      <div *ngFor="let cat of lisgtOfCategories; let i = index" cma>
+        <div
+          class="rounded-full w-56 h-52 flex justify-center hover:shadow-2xl shadow-cyan-500/50"
+        >
+          <div class="w-48 h-48">
+            <img src="{{ cat.iconUrl }}" class="" alt="" />
+            <div class="flex justify-center">
+              <span class="text-xl font-semibold mt-2 text-black-500">
+                {{ cat.nameCategory }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

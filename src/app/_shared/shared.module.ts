@@ -18,7 +18,8 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { CategoriesShortcutComponent } from './components/categories-shortcut/categories-shortcut.component';
+import { ProductsShortcutComponent } from './components/products-shortcut/products-shortcut.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PaginationsComponent,
     AboutComponent,
     ContactComponent,
+    CategoriesShortcutComponent,
+    ProductsShortcutComponent,
   ],
   imports: [
     CommonModule,
@@ -42,8 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxPaginationModule,
     Ng2SearchPipeModule,
     NgSelectModule,
-    ToastrModule.forRoot(), 
-    
+    ToastrModule.forRoot(),
   ],
   exports: [
     ReactiveFormsModule,
@@ -55,7 +57,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgSelectModule,
     AboutComponent,
     ContactComponent,
-    
+    CategoriesShortcutComponent,
+    ProductsShortcutComponent,
   ],
 })
 export class SharedModule {}

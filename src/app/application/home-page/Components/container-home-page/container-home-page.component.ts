@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CategoryService} from "../../../../_core/services/category.service";
 
 @Component({
   selector: 'app-container-home-page',
@@ -6,74 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./container-home-page.component.css'],
 })
 export class ContainerHomePageComponent implements OnInit {
-  ProcutsList = [
-    {
-      NameCategories: 'Gaming Products',
-      products: [
-        {
-          nameCategory: 'Gaming stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-        {
-          nameCategory: 'Gaming stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-        {
-          nameCategory: 'Gaming stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-        {
-          nameCategory: 'Gaming stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-      ],
-    },
+  listOfCategories$ = this.categotyService.getAllCategory();
 
-    {
-      NameCategories: 'Movies Products',
-      products: [
-        {
-          nameCategory: 'Movies stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-        {
-          nameCategory: 'Movies stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-        {
-          nameCategory: 'Movies stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-        {
-          nameCategory: 'Movies stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-      ],
-    },
+  constructor(private categotyService : CategoryService) {}
 
-    {
-      NameCategories: 'Anime Products',
-      products: [
-        {
-          nameCategory: 'Anime stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-        {
-          nameCategory: 'Anime stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-        {
-          nameCategory: 'Anime stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-        {
-          nameCategory: 'Anime stickers',
-          iconUrl: '../../../../assets/images/game1.png',
-        },
-      ],
-    },
-  ];
-  constructor() {}
+  ngOnInit(): void {
+  }
 
-  ngOnInit(): void {}
+
 }

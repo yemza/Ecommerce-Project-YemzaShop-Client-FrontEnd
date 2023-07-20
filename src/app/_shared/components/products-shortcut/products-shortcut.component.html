@@ -9,15 +9,15 @@
 <div class="p-8 drop-shadow-2xl">
   <a href="">
     <div class="grid grid-cols-4 gap-4">
-      <div *ngFor="let cat of lisgtOfCategories; let i = index" cma>
+      <div *ngFor="let cat of listOfCategories | async ; let i = index">
         <div
           class="rounded-full w-56 h-52 flex justify-center hover:shadow-2xl shadow-cyan-500/50"
         >
           <div class="w-48 h-48">
-            <img src="{{ cat.iconUrl }}" class="" alt="" />
+            <img src="../../../../../assets/images/product1.jpg" class="" alt="" />
             <div class="flex justify-center">
               <span class="text-xl font-semibold mt-2 text-black-500">
-                {{ cat.nameCategory }}
+                {{ cat.categoryName }}
               </span>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-categories-shortcut',
@@ -6,24 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories-shortcut.component.css'],
 })
 export class CategoriesShortcutComponent implements OnInit {
-  lisgtOfCategories: any = [
-    {
-      nameCategory: 'Gaming stickers',
-      iconUrl: '../../../../assets/images/game1.png',
-    },
-    {
-      nameCategory: 'Gaming stickers',
-      iconUrl: '../../../../assets/images/game1.png',
-    },
-    {
-      nameCategory: 'Gaming stickers',
-      iconUrl: '../../../../assets/images/game1.png',
-    },
-    {
-      nameCategory: 'Gaming stickers',
-      iconUrl: '../../../../assets/images/game1.png',
-    },
-  ];
+
+  @Input() listOfCategories: any;
+  @Input() title: any;
   constructor() {}
 
   ngOnInit(): void {}

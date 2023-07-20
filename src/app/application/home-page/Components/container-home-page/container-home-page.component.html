@@ -1,8 +1,8 @@
 <app-responsive-carousel></app-responsive-carousel>
-<app-categories-shortcut></app-categories-shortcut>
-<div *ngFor="let prodcut of ProcutsList">
-  <app-products-shortcut
-    [title]="prodcut.NameCategories"
-    [lisgtOfCategories]="prodcut.products"
-  ></app-products-shortcut>
-</div>
+<app-categories-shortcut
+  [title]="'Our Categories'"
+  [listOfCategories]="listOfCategories$"
+>
+
+
+</app-categories-shortcut>

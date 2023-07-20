@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./products-shortcut.component.css'],
 })
 export class ProductsShortcutComponent implements OnInit {
-  @Input() lisgtOfCategories: any;
+  @Input() listOfCategories: any;
   @Input() title: any;
 
   constructor() {}
